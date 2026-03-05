@@ -1,7 +1,6 @@
 playwright
 pytest
 pytest-bdd
-allure-pytest
 pytest-xdist
-python-dotenv
-pydantic
+pytest-rerunfailures
+allure-pytest

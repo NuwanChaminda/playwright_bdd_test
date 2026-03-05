@@ -1,51 +1,26 @@
 
-# Senior Automation Framework (Playwright + Pytest-BDD)
+# Playwright BDD Automation Framework
 
-## Stack
+Production-ready QA automation framework using:
+
 - Playwright (Python)
 - Pytest
 - Pytest-BDD
 - Allure Reports
-- Parallel Execution (pytest-xdist)
-- Page Object Model
-- Environment configuration
-- Utilities & reusable components
+- Parallel execution
+- Retry on failure
+- Screenshot + video capture
+- GitHub CI pipeline
 
-## Project Structure
-
-features/              -> BDD feature files
-features/steps/        -> Step definitions
-pages/                 -> Page Object Models
-tests/                 -> Fixtures
-utils/                 -> Helper utilities
-config/                -> Environment configuration
-data/                  -> Test data
-reports/               -> Allure results & screenshots
-
-## Setup
-
-Install dependencies
+## Install
 
 pip install -r requirements.txt
-
-Install browsers
-
 playwright install
 
-## Run Tests
+## Run tests
 
 pytest
 
-## Generate Allure Report
+## Allure report
 
 allure serve reports/allure-results
-
-## Features
-
-- BDD with 40 scenarios
-- Parallel execution
-- Page Object Model
-- Environment configs (.env)
-- Test data support
-- Screenshot utilities
-- Allure reporting

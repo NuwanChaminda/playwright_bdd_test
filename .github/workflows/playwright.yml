@@ -1,6 +1,7 @@
+
 name: Playwright Tests
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   test:
@@ -9,17 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
           playwright install
 
-      - name: Run Tests
+      - name: Run tests
         run: pytest
 
       - name: Upload Allure Results
