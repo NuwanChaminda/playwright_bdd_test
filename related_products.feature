@@ -150,7 +150,6 @@ Feature: Related Products Validation
 
   Scenario: TC-025 Validate related products rule 25
     Given user opens wallet search page
-    When Get Start Time
     When related products are visible
     Then validate testcase 25
 

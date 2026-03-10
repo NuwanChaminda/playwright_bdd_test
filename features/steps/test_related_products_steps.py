@@ -5,17 +5,13 @@ from pages.related_products_page import RelatedProductsPage
 from pages.products_page import ProductsPage
 import allure
 import time
+import pytest
 
 scenarios("../related_products.feature")
 
 @given("user opens wallet search page")
 def open_page(page):
     ProductsPage(page).open_wallet_page()
-
-@when("Get Start Time", target_fixture="start_time")
-def get_start_time():
-    start_time = time.time()
-    return start_time
 
 @when("related products are visible", target_fixture="new_page")
 def wait_products(page):
@@ -32,7 +28,6 @@ def wait_products(page):
 @then(parsers.parse("validate testcase {tc:d}"))
 def validate_tc(new_page,tc):
     rp = RelatedProductsPage(new_page)
-    start_time = get_start_time()
     with allure.step(f"Validate TC-{tc:03d}"):
 
         if tc == 1:

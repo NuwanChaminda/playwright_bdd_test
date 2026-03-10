@@ -1,4 +1,4 @@
-
+import time
 import pytest
 import os
 from playwright.sync_api import sync_playwright
@@ -9,6 +9,11 @@ def browser():
         browser = p.chromium.launch(headless=False)
         yield browser
         browser.close()
+
+@pytest.fixture
+def get_start_time():
+    start_time = time.time()
+    return start_time
 
 @pytest.fixture
 def page(browser, request):
