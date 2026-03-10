@@ -1,13 +1,15 @@
 
 class RelatedProductsPage:
 
-    RELATED_SECTION = "section:has-text('Related')"
-    PRODUCT_CARDS = "a[href*='/itm/']"
-    PRODUCT_TITLE = "h3, [role=heading]"
+    RELATED_SECTION = "section:has-text('Similar items')"
+    PRODUCT_SEARCH = "//a[@class='s-card__link image-treatment']/img[@loading='eager']"
+    PRODUCT_CARDS = "//a[@class='wwfl']"
+    PRODUCT_TITLE = "//div[@class='fkTT']/div/h3"
     PRODUCT_PRICE = "[class*=price]"
-    PRODUCT_IMAGE = "img"
+    PRODUCT_IMAGE = "//div[@class='recs-image-wrap-below-hero']/div/img"
     BEST_SELLER_BADGE = ":has-text('Best Seller')"
-    URL = "https://www.ebay.com/sch/i.html?_nkw=wallet"
+    URL = "https://www.ebay.com/sch/i.html?_nkw=wallet+slim"
+    ALL_LINKS = "a[href *= '/itm/']"
 
     def __init__(self, page):
         self.page = page
@@ -31,7 +33,7 @@ class RelatedProductsPage:
         return self.page.locator(self.PRODUCT_IMAGE)
 
     def links(self):
-        return self.page.locator(self.PRODUCT_CARDS)
+        return self.page.locator(self.ALL_LINKS)
 
     def click_first(self):
         self.links().first.click()

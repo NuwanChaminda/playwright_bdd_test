@@ -1,5 +1,5 @@
 
-class RelatedProductsPage:
+class ProductsPage:
 
     RELATED_SECTION = "section:has-text('Similar items')"
     PRODUCT_SEARCH = "//a[@class='s-card__link image-treatment']/img[@loading='eager']"
