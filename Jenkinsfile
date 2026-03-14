@@ -14,15 +14,23 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 bat 'python -m venv env2'
-                bat 'env2\\Scripts\\activate'
-                bat 'python -m pip install -r requirements.txt'
-                bat 'python -m playwright install'
+                bat 'env2\\Scripts\\python -m pip install --upgrade pip'
+                bat 'env2\\Scripts\\python -m pip install -r requirements.txt'
+                bat 'env2\\Scripts\\python -m playwright install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'python -m pytest'
+                bat 'env2\\Scripts\\python -m pytest --alluredir=allure-results'
+            }
+        }
+
+        stage('Generate Allure Report') {
+            steps {
+                allure includeProperties: false,
+                jdk: '',
+                results: [[path: 'allure-results']]
             }
         }
 
