@@ -1,11 +1,13 @@
 pipeline {
+
     agent any
 
     stages {
 
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                git 'https://github.com/NuwanChaminda/playwright_bdd_test.git'
+                git branch: 'main',
+                url: 'https://github.com/NuwanChaminda/playwright_bdd_test.git'
             }
         }
 
