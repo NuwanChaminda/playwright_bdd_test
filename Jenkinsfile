@@ -20,7 +20,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'pytest -n 2 --alluredir=allure-results'
+                bat 'pytest'
             }
         }
 
