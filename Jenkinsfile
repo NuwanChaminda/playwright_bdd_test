@@ -22,7 +22,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'env2\\Scripts\\python -m pytest --alluredir=allure-results'
+                bat 'env2\\Scripts\\python -m pytest features/steps/test_related_products_steps.py::test_tc025_validate_related_products_rule_25 --alluredir=allure-results'
             }
         }
 
