@@ -26,7 +26,7 @@ def wait_products(page):
 
 
 @then(parsers.parse("validate testcase {tc:d}"))
-def validate_tc(new_page,tc):
+def validate_tc(new_page,get_start_time,tc):
     rp = RelatedProductsPage(new_page)
     with allure.step(f"Validate TC-{tc:03d}"):
 
@@ -230,7 +230,7 @@ def validate_tc(new_page,tc):
         elif tc == 25:
             new_page.wait_for_load_state("domcontentloaded")
             new_page.wait_for_selector("//h2[text()='Similar items']")
-            assert time.time() - start_time < 10.0
+            assert time.time() - get_start_time < 10.0
 
         # elif tc == 26:
         #     rp = RelatedProductsPage(page)
