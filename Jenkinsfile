@@ -13,14 +13,16 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'pip install -r requirements.txt'
+                bat 'python -m venv env2'
+                bat 'env2\Scripts\activate'
+                bat 'python -m pip install -r requirements.txt'
                 bat 'python -m playwright install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'pytest'
+                bat 'python -m pytest'
             }
         }
 
